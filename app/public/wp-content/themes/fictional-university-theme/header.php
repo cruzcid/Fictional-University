@@ -1,12 +1,17 @@
 <!DOCTYPE html>
-<html>
+<!-- language_attibutes(); display info about the language used when inspecting the webpage -->
+<html <?php language_attributes(); ?>>
     <body>
-        <head>
-        <?php wp_head() ?>
-        <meta charset="UTF-8" />
+        <head>        
+        <!-- bloginfo  used to output the character set specified in the site's settings -->
+        <meta charset="<?php bloginfo('charset') ?>"/>
+        <!-- Responsive pages with this. -->
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <?php wp_head(); ?>
     </head>
-    <body>
+    <!-- is used to output a set of CSS classes for the <body> element of a WordPress site. 
+        These classes provide information about the current page, -->
+    <body <?php body_class(); ?>>
         <header class="site-header">
         <div class="container">
             <h1 class="school-logo-text float-left">
