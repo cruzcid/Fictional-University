@@ -1,26 +1,28 @@
 <!DOCTYPE html>
-<html>
+<!-- language_attibutes(); display info about the language used when inspecting the webpage -->
+<html <?php language_attributes(); ?>>
     <body>
-        <head>
-        <?php wp_head() ?>
-        <meta charset="UTF-8" />
+        <head>        
+        <!-- bloginfo  used to output the character set specified in the site's settings -->
+        <meta charset="<?php bloginfo('charset') ?>"/>
+        <!-- Responsive pages with this. -->
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>Fictional University</title>        
-        <link rel="stylesheet" href="build/index.css" />
-        <link rel="stylesheet" href="build/style-index.css" />
+        <?php wp_head(); ?>
     </head>
-    <body>
+    <!-- is used to output a set of CSS classes for the <body> element of a WordPress site. 
+        These classes provide information about the current page, -->
+    <body <?php body_class(); ?>>
         <header class="site-header">
         <div class="container">
             <h1 class="school-logo-text float-left">
-            <a href="#"><strong>Fictional</strong> University</a>
+            <a href="<?php echo site_url() ?>"><strong>Fictional</strong> University</a>
             </h1>
             <span class="js-search-trigger site-header__search-trigger"><i class="fa fa-search" aria-hidden="true"></i></span>
             <i class="site-header__menu-trigger fa fa-bars" aria-hidden="true"></i>
             <div class="site-header__menu group">
             <nav class="main-navigation">
                 <ul>
-                <li><a href="#">About Us</a></li>
+                <li><a href="<?php echo site_url('/about-us') ?>">About Us</a></li>
                 <li><a href="#">Programs</a></li>
                 <li><a href="#">Events</a></li>
                 <li><a href="#">Campuses</a></li>
