@@ -22,7 +22,15 @@
             <div class="site-header__menu group">
             <nav class="main-navigation">
                 <ul>
-                <li><a href="<?php echo site_url('/about-us') ?>">About Us</a></li>
+                <li <?php                     
+                        // Get the ID of the 'about-us' page
+                        //$about_us_page = get_page_by_title('about-us');
+                        //$about_us_page_id = $about_us_page->ID;
+                        $about_us_page_hardcoded_id = 14;
+                        if (is_page('about-us') or wp_get_post_parent_id(get_the_ID()) == $about_us_page_hardcoded_id)
+                            echo 'class="current-menu-item"'?>>
+                    <a href="<?php echo site_url('/about-us') ?>">About Us</a>
+                </li>
                 <li><a href="#">Programs</a></li>
                 <li><a href="#">Events</a></li>
                 <li><a href="#">Campuses</a></li>
